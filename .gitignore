@@ -1,0 +1,12 @@
+# OS / editor cruft
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local server / tooling noise
+node_modules/
+*.log

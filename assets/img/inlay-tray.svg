@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Bone inlay serving tray">
+  <defs>
+    <linearGradient id="bg8" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ece4da"/><stop offset="1" stop-color="#d9cec0"/></linearGradient>
+    <pattern id="inl" width="80" height="80" patternUnits="userSpaceOnUse">
+      <rect width="80" height="80" fill="#153a4a"/>
+      <path d="M40 8l12 20-12 20-12-20z" fill="#f5efe2"/>
+      <path d="M40 40l12 20-12 20-12-20z" fill="#f5efe2"/>
+      <circle cx="0" cy="40" r="7" fill="#f5efe2"/><circle cx="80" cy="40" r="7" fill="#f5efe2"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg8)"/>
+  <ellipse cx="300" cy="560" rx="200" ry="28" fill="#000" opacity=".10"/>
+  <rect x="96" y="230" width="408" height="290" rx="26" fill="#0f2e3b"/>
+  <rect x="118" y="252" width="364" height="246" rx="16" fill="url(#inl)"/>
+  <rect x="96" y="230" width="408" height="290" rx="26" fill="none" stroke="#f5efe2" stroke-width="8"/>
+  <rect x="60" y="330" width="46" height="90" rx="14" fill="#0f2e3b"/>
+  <rect x="494" y="330" width="46" height="90" rx="14" fill="#0f2e3b"/>
+  <rect x="72" y="352" width="22" height="46" rx="10" fill="#f5efe2" opacity=".8"/>
+  <rect x="506" y="352" width="22" height="46" rx="10" fill="#f5efe2" opacity=".8"/>
+</svg>

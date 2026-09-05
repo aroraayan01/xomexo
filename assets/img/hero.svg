@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A potter's hands shaping clay on the wheel">
+  <defs>
+    <linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2b22"/><stop offset=".55" stop-color="#5c4332"/><stop offset="1" stop-color="#2a1e17"/></linearGradient>
+    <radialGradient id="hlight" cx=".5" cy=".32" r=".72"><stop offset="0" stop-color="#ffdca8" stop-opacity=".5"/><stop offset="1" stop-color="#ffdca8" stop-opacity="0"/></radialGradient>
+    <linearGradient id="hclay" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a4527"/><stop offset=".45" stop-color="#c07a52"/><stop offset="1" stop-color="#6f351d"/></linearGradient>
+    <linearGradient id="hskin" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#8f5f3c"/><stop offset="1" stop-color="#c08d5f"/></linearGradient>
+  </defs>
+
+  <rect width="1400" height="1000" fill="url(#hbg)"/>
+  <rect width="1400" height="1000" fill="url(#hlight)"/>
+
+  <!-- shelf of drying pots in the background -->
+  <g opacity=".2" fill="#f0d9b8">
+    <rect x="80" y="120" width="330" height="12" rx="6"/>
+    <path d="M140 132c0 56 24 90 56 90s56-34 56-90zM300 132c0 70 18 112 40 112s40-42 40-112z"/>
+    <rect x="990" y="96" width="340" height="12" rx="6"/>
+    <path d="M1046 108c0 80 20 128 46 128s46-48 46-128zM1200 108c0 54 16 86 36 86s36-32 36-86z"/>
+  </g>
+
+  <!-- wheel head -->
+  <ellipse cx="700" cy="830" rx="520" ry="140" fill="#1d140f" opacity=".65"/>
+  <ellipse cx="700" cy="748" rx="300" ry="76" fill="#3b2b20"/>
+  <ellipse cx="700" cy="730" rx="300" ry="72" fill="#54402f"/>
+  <ellipse cx="700" cy="730" rx="206" ry="48" fill="#43311f" opacity=".5"/>
+
+  <!-- the vessel -->
+  <path d="M700 380c-96 0-150 76-150 168 0 76 44 132 150 132s150-56 150-132c0-92-54-168-150-168z" fill="url(#hclay)"/>
+  <ellipse cx="700" cy="382" rx="98" ry="30" fill="#5f2c17"/>
+  <ellipse cx="700" cy="378" rx="70" ry="20" fill="#3a1a0d"/>
+  <path d="M602 470c-10 74-4 140 16 190" stroke="#e6a97c" stroke-width="14" opacity=".3" fill="none"/>
+
+  <!-- left arm and hand -->
+  <path d="M96 742L500 548" stroke="url(#hskin)" stroke-width="92" stroke-linecap="round" fill="none"/>
+  <circle cx="522" cy="532" r="54" fill="#c08d5f"/>
+  <g stroke="#b07d51" stroke-width="24" stroke-linecap="round" fill="none">
+    <path d="M544 498l70-28"/>
+    <path d="M548 528l72-20"/>
+    <path d="M548 558l68-8"/>
+  </g>
+  <path d="M508 486c8-32 30-50 54-44" stroke="#c08d5f" stroke-width="26" stroke-linecap="round" fill="none"/>
+
+  <!-- right arm and hand -->
+  <path d="M1304 742L900 548" stroke="url(#hskin)" stroke-width="92" stroke-linecap="round" fill="none"/>
+  <circle cx="878" cy="532" r="54" fill="#c08d5f"/>
+  <g stroke="#b07d51" stroke-width="24" stroke-linecap="round" fill="none">
+    <path d="M856 498l-70-28"/>
+    <path d="M852 528l-72-20"/>
+    <path d="M852 558l-68-8"/>
+  </g>
+  <path d="M892 486c-8-32-30-50-54-44" stroke="#c08d5f" stroke-width="26" stroke-linecap="round" fill="none"/>
+
+  <!-- flecks of clay in the light -->
+  <g fill="#e8c08c" opacity=".22">
+    <circle cx="1180" cy="620" r="6"/><circle cx="1250" cy="700" r="4"/>
+    <circle cx="180" cy="560" r="5"/><circle cx="250" cy="660" r="3"/>
+  </g>
+</svg>

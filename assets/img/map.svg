@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Map showing the Xomexo studio at Nehru Place, New Delhi">
+  <rect width="800" height="500" fill="#eee9df"/>
+  <g fill="#e2dbcd">
+    <rect x="40" y="40" width="180" height="120" rx="6"/><rect x="250" y="40" width="220" height="120" rx="6"/>
+    <rect x="500" y="40" width="260" height="120" rx="6"/><rect x="40" y="200" width="180" height="130" rx="6"/>
+    <rect x="250" y="200" width="220" height="130" rx="6"/><rect x="500" y="200" width="260" height="130" rx="6"/>
+    <rect x="40" y="370" width="300" height="110" rx="6"/><rect x="370" y="370" width="390" height="110" rx="6"/>
+  </g>
+  <g fill="#d8e2d2">
+    <rect x="500" y="200" width="120" height="130" rx="6"/>
+    <rect x="40" y="40" width="90" height="120" rx="6"/>
+  </g>
+  <g stroke="#faf7f0" fill="none" stroke-linecap="round">
+    <path d="M232 20v470M482 20v470" stroke-width="20"/>
+    <path d="M20 180h760M20 350h760" stroke-width="22"/>
+    <path d="M20 470h760" stroke-width="14"/>
+  </g>
+  <g stroke="#e8c98d" stroke-width="10" fill="none"><path d="M20 350h760"/></g>
+  <g font-family="Inter, sans-serif" font-size="13" fill="#8b8073" letter-spacing="1">
+    <text x="34" y="172">OUTER RING ROAD</text>
+    <text x="240" y="470" transform="rotate(-90 240 470)">MODI TOWER RD</text>
+    <text x="34" y="342">NEHRU PLACE</text>
+  </g>
+  <circle cx="400" cy="266" r="34" fill="#b45a3c" opacity=".18"/>
+  <path d="M400 218c-19 0-34 15-34 34 0 24 34 62 34 62s34-38 34-62c0-19-15-34-34-34z" fill="#b45a3c"/>
+  <circle cx="400" cy="252" r="12" fill="#faf6ef"/>
+  <g font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#2b241f">
+    <rect x="330" y="322" width="140" height="30" rx="15" fill="#faf6ef" stroke="#e2d8c9"/>
+    <text x="352" y="342">Xomexo studio</text>
+  </g>
+</svg>

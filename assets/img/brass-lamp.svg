@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Hand-cast brass oil lamp">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2420"/><stop offset="1" stop-color="#181411"/></linearGradient>
+    <linearGradient id="br" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8a651f"/><stop offset=".35" stop-color="#e0b45c"/><stop offset=".62" stop-color="#c8963e"/><stop offset="1" stop-color="#7d5a1a"/></linearGradient>
+    <radialGradient id="fl" cx=".5" cy=".5"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".5" stop-color="#f0a63c" stop-opacity=".55"/><stop offset="1" stop-color="#f0a63c" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg3)"/>
+  <circle cx="300" cy="268" r="170" fill="url(#fl)"/>
+  <path d="M300 196c16 30 30 46 30 68a30 30 0 0 1-60 0c0-22 14-38 30-68z" fill="#ffd77a"/>
+  <path d="M186 322h228c0 34-40 52-114 52s-114-18-114-52z" fill="url(#br)"/>
+  <path d="M182 300h236c8 0 12 10 6 16l-14 14H190l-14-14c-6-6-2-16 6-16z" fill="#e0b45c"/>
+  <rect x="286" y="374" width="28" height="86" fill="url(#br)"/>
+  <path d="M204 460h192c14 0 22 12 22 26 0 20-16 32-40 32H222c-24 0-40-12-40-32 0-14 8-26 22-26z" fill="url(#br)"/>
+  <ellipse cx="300" cy="546" rx="140" ry="16" fill="#000" opacity=".45"/>
+  <g stroke="#7d5a1a" stroke-width="3" opacity=".6" fill="none"><path d="M220 338h160M240 486h120"/></g>
+</svg>
