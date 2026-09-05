@@ -463,3 +463,20 @@ select.field { appearance: none; }
 }
 .field.select { padding: .9rem 2.4rem .9rem 1.1rem; font-size: .92rem; background-position: right 1.1rem center; }
 :focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+
+/* ---------- category tiles ---------- */
+.cat-tiles { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.5rem 1.25rem; }
+.cat-tile { text-align: center; }
+.cat-tile img {
+  aspect-ratio: 1; object-fit: cover; border-radius: 50%;
+  margin-bottom: .9rem; background: var(--cream-2);
+  transition: transform .5s var(--ease), box-shadow .3s var(--ease);
+}
+.cat-tile:hover img { transform: scale(1.04); box-shadow: var(--shadow); }
+.cat-tile span { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.cat-tile:hover span { color: var(--clay); }
+
+.quote .stars { font-family: var(--font-body); font-size: 1rem; margin-bottom: .6rem; }
+
+@media (max-width: 1000px) { .cat-tiles { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 620px)  { .cat-tiles { grid-template-columns: repeat(2, 1fr); } }

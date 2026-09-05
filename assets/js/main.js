@@ -49,7 +49,7 @@
     if (hit) { hit.qty += (qty || 1); }
     else { lines.push({ id: id, qty: qty || 1 }); }
     writeCart(lines);
-    toast(product.name + ' added to your basket');
+    toast(product.name + ' added to your cart');
     openDrawer();
   }
 
@@ -85,8 +85,8 @@
     if (!body) return;
 
     if (!lines.length) {
-      body.innerHTML = '<div class="cart-empty"><p>Your basket is empty.</p>' +
-        '<a class="btn btn--ghost btn--sm" href="shop.html">Browse the shop</a></div>';
+      body.innerHTML = '<div class="cart-empty"><p>Your cart is empty.</p>' +
+        '<a class="btn btn--ghost btn--sm" href="shop.html">Continue Shopping</a></div>';
     } else {
       body.innerHTML = lines.map(function (l) {
         var p = byId(l.id);
@@ -153,7 +153,7 @@
 
     var action = p.stock === 0
       ? '<button class="btn btn--sm btn--block" type="button" disabled>Sold out</button>'
-      : '<button class="btn btn--sm btn--block" type="button" data-add="' + p.id + '">Add to basket</button>';
+      : '<button class="btn btn--sm btn--block" type="button" data-add="' + p.id + '">Add to Cart</button>';
 
     return '<article class="pcard reveal">' +
       '<div class="pcard-media">' + tag +
@@ -170,8 +170,8 @@
 
   function renderInto(el, list) {
     if (!list.length) {
-      el.innerHTML = '<div class="empty-state"><p>Nothing matches those filters yet.</p>' +
-        '<button class="btn btn--ghost btn--sm" type="button" data-clear-filters>Clear filters</button></div>';
+      el.innerHTML = '<div class="empty-state"><p>No products match your filters.</p>' +
+        '<button class="btn btn--ghost btn--sm" type="button" data-clear-filters>Clear Filters</button></div>';
     } else {
       el.innerHTML = list.map(cardHTML).join('');
     }
@@ -181,11 +181,11 @@
   /* ------------------------------------------------------- home page grid */
 
   function initFeatured() {
-    var el = $('[data-featured]');
-    if (!el) return;
-    var ids = (el.getAttribute('data-featured') || '').split(',').filter(Boolean);
-    var list = ids.length ? ids.map(byId).filter(Boolean) : PRODUCTS.slice(0, 4);
-    renderInto(el, list);
+    $$('[data-featured]').forEach(function (el) {
+      var ids = (el.getAttribute('data-featured') || '').split(',').filter(Boolean);
+      var list = ids.length ? ids.map(byId).filter(Boolean) : PRODUCTS.slice(0, 4);
+      renderInto(el, list);
+    });
   }
 
   /* ------------------------------------------------------------ shop page */
@@ -228,7 +228,7 @@
 
       renderInto(grid, list);
       if (countEl) {
-        countEl.textContent = list.length + (list.length === 1 ? ' piece' : ' pieces');
+        countEl.textContent = list.length + (list.length === 1 ? ' product' : ' products');
       }
 
       // reflect the filter state in the URL so the view can be shared
@@ -268,13 +268,43 @@
     var id = new URLSearchParams(location.search).get('id');
     var p = byId(id) || PRODUCTS[0];
 
-    document.title = p.name + ' — Xomexo';
+    document.title = p.name + ' | Xomexo';
+
+    var crumb = $('[data-crumb-name]');
+    if (crumb) crumb.textContent = p.name;
+
+    // Product structured data, so the listing can show price and rating in search
+    var ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: p.name,
+      image: location.origin + '/' + p.img,
+      description: p.lead,
+      brand: { '@type': 'Brand', name: 'Xomexo' },
+      material: p.material,
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'INR',
+        price: p.price,
+        availability: p.stock === 0
+          ? 'https://schema.org/OutOfStock'
+          : 'https://schema.org/InStock'
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: p.rating,
+        reviewCount: p.reviews
+      }
+    });
+    document.head.appendChild(ld);
 
     var views = [
       { src: p.img, pos: 'center' },
       { src: p.img, pos: 'top' },
       { src: p.img, pos: 'bottom' },
-      { src: 'assets/img/atelier.svg', pos: 'center' }
+      { src: 'assets/img/photos/workshop.jpg', pos: 'center' }
     ];
 
     var priceHTML = p.compareAt
@@ -305,22 +335,22 @@
           '<div class="qty"><button type="button" data-qty="-1">&minus;</button><span data-qty-value>1</span><button type="button" data-qty="1">+</button></div>' +
           (p.stock === 0
             ? '<button class="btn btn--primary" type="button" disabled>Sold out</button>'
-            : '<button class="btn btn--primary" type="button" data-add-detail="' + p.id + '">Add to basket &mdash; ' + money(p.price) + '</button>') +
+            : '<button class="btn btn--primary" type="button" data-add-detail="' + p.id + '">Add to Cart</button>') +
         '</div>' +
         '<p class="form-note">' + (p.stock === 0
-            ? 'Back in stock in about three weeks. Join the waitlist below.'
-            : (p.stock < 10 ? 'Only ' + p.stock + ' left — each batch is small.' : 'In stock, dispatched in 2 working days.')) +
+            ? 'Currently out of stock. Expected back in about three weeks.'
+            : (p.stock < 10 ? 'Hurry, only ' + p.stock + ' left in stock.' : 'In stock. Dispatched within 2 working days.')) +
         '</p>' +
         '<div class="accordion">' +
-          '<details open><summary>The making of it</summary><div class="acc-body">' + p.story + '</div></details>' +
-          '<details><summary>Details</summary><div class="acc-body"><ul class="spec-list">' +
+          '<details open><summary>Description</summary><div class="acc-body">' + p.story + '</div></details>' +
+          '<details><summary>Product Details</summary><div class="acc-body"><ul class="spec-list">' +
             '<li><span>Material</span><span>' + p.material + '</span></li>' +
             '<li><span>Dimensions</span><span>' + p.dims + '</span></li>' +
             '<li><span>Made in</span><span>' + p.origin + '</span></li>' +
             '<li><span>Artisan</span><span>' + p.artisan + '</span></li>' +
           '</ul></div></details>' +
-          '<details><summary>Care</summary><div class="acc-body">' + p.care + '</div></details>' +
-          '<details><summary>Shipping &amp; returns</summary><div class="acc-body">Free shipping across India on orders over ' + money(2500) + '. Delivered in 3&ndash;6 working days. Worldwide shipping from ' + money(1900) + '. Returns accepted within 15 days, unused and in its original packing.</div></details>' +
+          '<details><summary>Care Instructions</summary><div class="acc-body">' + p.care + '</div></details>' +
+          '<details><summary>Shipping &amp; Returns</summary><div class="acc-body">Free shipping across India on orders over ' + money(2500) + '. Delivered in 3&ndash;6 working days. Worldwide shipping from ' + money(1900) + '. Returns accepted within 15 days, unused and in its original packing.</div></details>' +
         '</div>' +
       '</div>';
 
@@ -419,7 +449,7 @@
       if (dec) { bumpQty(dec.getAttribute('data-cart-dec'), -1); return; }
 
       if (e.target.closest('[data-checkout]')) {
-        toast('Checkout is not wired up on this demo build.');
+        toast('Online checkout is coming soon. Please call or WhatsApp +91 11 4050 2288 to place this order.');
       }
     });
 
