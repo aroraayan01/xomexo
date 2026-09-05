@@ -1,0 +1,6 @@
+# The server serves these; keep LF in the repo and in the checkout.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary
